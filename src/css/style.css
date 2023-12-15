@@ -1,0 +1,58 @@
+.search-form {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  width: 100%;
+  padding: 30px;
+  gap: 32px;
+  box-shadow: rgba(57, 57, 167, 0.25) 0px 12px 24px -8px,
+    rgba(41, 0, 0, 0.3) 0px 8px 16px -8px;
+  background-color: rgb(4, 0, 247);
+}
+input {
+  height: 40px;
+  width: 350px;
+  border: 1px solid rgb(0, 1, 61);
+}
+button {
+  height: 40px;
+  border-radius: 10px;
+  width: 120px;
+  border: none;
+  background-color: rgb(255, 0, 0);
+  transition: 500ms;
+  cursor: pointer;
+}
+button:hover,
+button:focus {
+  background-color: rgb(255, 0, 191);
+}
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 140px;
+  gap: 30px;
+  row-gap: 20px;
+}
+body { 
+  background-color: white;
+}
+.photo-card {
+  padding: 5px;
+  background-color: grey;
+}
+img {
+  display: block;
+  max-width: 100%;
+} 
+.is-hidden{ 
+ visibility: hidden;
+}
+.load-more{ 
+  display: block;
+  margin: 0 auto;
+  margin-top: 50px;
+}
