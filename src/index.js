@@ -46,7 +46,7 @@ async function onFetch(e) {
   } catch (error) {
     throw new Error(error);
   }
-  evt.target.reset();
+  e.target.reset();
 }
 async function LoadingMore() {
   page += 1;
