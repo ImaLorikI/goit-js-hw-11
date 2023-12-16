@@ -12,22 +12,22 @@ let page = 1;
 let searchValue = '';
 refs.search.addEventListener('submit', onFetch);
 async function onFetch(e) {
-  Notiflix.Loading.dots('Loading...');
   e.preventDefault();
+  Notiflix.Loading.dots('Loading...');
   refs.gallery.innerHTML = '';
   searchValue = e.target.searchQuery.value;
   searchValue = searchValue.toLowerCase().trim();
   if (searchValue === '') {
-    Notify.info('Please enter something...'); //
+    Notify.failure('Please enter something...'); 
+    Notiflix.Loading.remove();
+    evt.target.reset();
     return;
   }
   page = 1;
   try {
     const { hits, totalHits } = await fetchinfo(searchValue, page);
     if (totalHits === 0) {
-      Notify.failure(
-        'Sorry, there are no images.Please try again.'
-      );
+      Notify.failure('Sorry, there are no images.Please try again.');
       Notiflix.Loading.remove();
       evt.target.reset();
       return;
@@ -56,6 +56,7 @@ async function LoadingMore() {
   Notiflix.Loading.remove();
     createMarkup(hits);
     if (page === lastPage) {
-    Notify.info("We're sorry, but you've reached the end of search results.");
+      Notify.info("We're sorry, but you've reached the end of search results.");
+      loadMore.classList.add('is-hidden');
   }
 }
